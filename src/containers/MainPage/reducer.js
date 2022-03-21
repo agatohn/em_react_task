@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import store from '../../store';
 import * as actions from './actions';
 
 const initialState = {
@@ -8,12 +7,15 @@ const initialState = {
   data: null,
 };
 const reducer = createReducer(initialState, {
-  [actions.getMainPageData.REQUEST]: () => {
-    console.log('request reducer');
+  [actions.getMainPageData.REQUEST]: state => {
+    state.loading = true;
+  },
+  [actions.getMainPageData.SUCCESS]: (state, { payload }) => {
+    state.data = payload;
   },
 });
 
-const mainPageData = store => store.mainPageReducer.data;
+const mainPageData = state => state.mainPageReducer.data;
 
 const selectors = { mainPageData };
 export { reducer, initialState, selectors };

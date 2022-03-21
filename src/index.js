@@ -6,7 +6,7 @@ import App from './App';
 import { store } from './store';
 
 // import reportWebVitals from "./reportWebVitals";
-
+// function render() {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -17,6 +17,9 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+// }
+// render();
+// store.subscribe(render);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
